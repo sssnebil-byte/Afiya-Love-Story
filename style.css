@@ -1,0 +1,799 @@
+/* -------------------- Global Reset & Typography -------------------- */
+:root {
+    --primary-pink: #FF69B4; /* Deep Pink */
+    --soft-pink: #FEEAFA; /* Very Light Pink */
+    --soft-red: #FA8072; /* Salmon/Soft Red */
+    --white: #ffffff;
+    --text-dark: #333333;
+    --border-radius-lg: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background: linear-gradient(135deg, var(--soft-pink) 0%, var(--white) 100%);
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-pink);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* -------------------- Navigation Bar -------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--soft-red);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: var(--border-radius-lg);
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-links li a:hover, .nav-links li a.active {
+    background: var(--primary-pink);
+    color: var(--white);
+}
+
+
+/* -------------------- Hero Section -------------------- */
+.hero-section {
+    height: 70vh; /* ለትልቅ ምስል */
+    background: url('assets/images/hero.jpg') center/cover no-repeat; /* የራስዎን ምስል እዚህ ያስቀምጡ! */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* ትንሽ ጨለማ ሽፋን */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    color: var(--white);
+}
+
+.hero-title {
+    font-size: 4em;
+    margin-bottom: 10px;
+    color: var(--white); /* ርዕሱን ነጭ ያድርጉ */
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    text-decoration: none;
+    background: var(--soft-red);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: var(--primary-pink);
+}
+
+/* -------------------- Card Layout (ለአጠቃላይ አቀማመጥ) -------------------- */
+.card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px 0;
+}
+
+/* -------------------- Promise Section -------------------- */
+.promise-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.promise-card {
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.promise-card p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.icons {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+.icon {
+    margin: 0 15px;
+    display: inline-block;
+    color: var(--primary-pink);
+}
+
+/* -------------------- Footer -------------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--primary-pink);
+    color: var(--white);
+    font-size: 0.9em;
+}
+/* -------------------- Story Timeline Styles -------------------- */
+.story-timeline-section {
+    padding: 60px 0;
+}
+
+.story-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* የጊዜ መስመሩ መሀል መስመር */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-pink);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-card {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.timeline-card::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: var(--white);
+    border: 4px solid var(--soft-red);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* የግራ በኩል ካርዶች */
+.timeline-card.left {
+    left: 0;
+}
+
+/* የቀኝ በኩል ካርዶች */
+.timeline-card.right {
+    left: 50%;
+}
+
+.timeline-card.right::after {
+    left: -16px;
+}
+
+.timeline-content {
+    padding: 20px;
+}
+
+.timeline-date {
+    color: var(--soft-red);
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.story-image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    margin-top: 15px;
+    border-radius: var(--border-radius-lg);
+}
+
+/* -------------------- Soft Animation (Slide-in) -------------------- */
+@keyframes slideInFromLeft {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in {
+    /* መጀመሪያ የማይታይ እንዲሆን */
+    opacity: 0; 
+}
+
+/* በቀጥታ HTML ውስጥ animation አንሰጥም፤ በJS አማካኝነት ስክሮል ሲደረግ እንሰጣለን */
+/* ለሙከራ እንዲመች አሁን በCSS እናድርገው */
+.timeline-card.left {
+    animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.timeline-card.right {
+    animation: slideInFromRight 1s ease-out forwards;
+}
+
+/* ማሳሰቢያ: እያንዳንዱ ካርድ የተለያየ ጊዜ እንዲጀምር ለማድረግ: */
+/* .timeline-card:nth-child(1) { animation-delay: 0s; } */
+/* .timeline-card:nth-child(2) { animation-delay: 0.5s; } */
+/* .timeline-card:nth-child(3) { animation-delay: 1s; } */
+
+
+/* -------------------- Mobile Responsiveness -------------------- */
+@media (max-width: 600px) {
+    /* ለትንንሽ ስክሪኖች የጊዜ መስመሩን ወደ ግራ ማንቀሳቀስ */
+    .timeline-container::after {
+        left: 31px;
+    }
+    
+    .timeline-card {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-card.right {
+        left: 0%;
+    }
+
+    .timeline-card.left::after, .timeline-card.right::after {
+        left: 15px;
+    }
+}
+/* -------------------- Gallery Section (Masonry/Grid) -------------------- */
+.gallery-section {
+    padding: 60px 0;
+}
+
+.gallery-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Masonry Layout በ CSS Grid */
+.gallery-grid {
+    display: grid;
+    /* 3 አምዶች (Columns) ይኖሩታል፣ ነገር ግን ስክሪኑ ሲጠበብ በራስ-ሰር ይስተካከላል */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* ሲነካ ትንሽ ወደ ላይ እንዲወጣ */
+}
+
+.gallery-item img {
+    width: 100%;
+    /* የምስሎቹ ቁመት ሊለያይ ይችላል (Masonry Effect) */
+    display: block; 
+    height: auto; 
+}
+
+.image-caption {
+    padding: 10px;
+    font-size: 0.9em;
+    text-align: center;
+    color: var(--primary-pink);
+    font-weight: 600;
+}
+
+/* -------------------- Lightbox (Image Zoom) -------------------- */
+.lightbox {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); /* ጥቁር ዳራ */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    border-radius: var(--border-radius-lg);
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: var(--primary-pink);
+    text-decoration: none;
+    cursor: pointer;
+}
+/* -------------------- Contact Section -------------------- */
+.contact-section {
+    padding: 60px 0 20px 0;
+}
+
+.contact-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.contact-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.love-form .form-group {
+    margin-bottom: 15px;
+}
+
+.love-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--primary-pink);
+}
+
+.love-form input, .love-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #FFD1EE; /* Soft border */
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1em;
+    background-color: var(--soft-pink);
+}
+
+.love-form textarea {
+    resize: vertical;
+}
+
+.send-love-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.send-love-btn .heart-icon {
+    margin-right: 10px;
+    animation: heartBeat 1.5s infinite; /* Heart Animation */
+}
+
+/* Telegram & Email Links */
+.redirect-links {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.email-link {
+    background-color: #FEEAFA;
+    color: var(--primary-pink);
+    border: 1px solid var(--primary-pink);
+}
+
+.telegram-link {
+    background-color: #0088cc;
+    color: var(--white);
+}
+
+/* -------------------- Final Message Section -------------------- */
+.final-message-section {
+    padding: 40px 0 60px 0;
+}
+
+.final-message-box {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    border: 3px solid var(--soft-red); /* አጽንዖት ለመስጠት */
+    background: linear-gradient(180deg, var(--white), var(--soft-pink));
+}
+
+.final-message-box h2 {
+    color: var(--soft-red);
+}
+
+.personal-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin: 20px 0;
+}
+
+/* -------------------- Heart Animations -------------------- */
+
+/* አዝራር ውስጥ ያለው ልብ እንዲመታ */
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* የመጨረሻው መልዕክት ላይ ያለው ልብ እንዲመታ */
+.animated-hearts {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.heart-pulse {
+    display: inline-block;
+    animation: heartBeat 2s infinite ease-in-out;
+    margin: 0 5px;
+}
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+/* -------------------- Video Section Styles -------------------- */
+.video-section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.video-container {
+    max-width: 700px;
+    margin: 20px auto;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ምጥጥን (aspect ratio) */
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* ለ Gallery Grid ውስጥ ያሉ ሙሉ ስፋት ያላቸው እቃዎች */
+.gallery-item.full-width-item {
+    grid-column: 1 / -1; /* ሙሉውን ስፋት እንዲይዝ ያደርጋል */
+    padding: 20px;
+    background-color: var(--white-bg); /* ትንሽ ከበስተጀርባው የተለየ ቀለም ይስጣል */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+/* ለ Navbar Logo አዲስ ማስተካከያ */
+.navbar .logo {
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    color: var(--pink-primary);
+    /* ዋናው ማስተካከያ: አግድም እንዲሆን */
+    display: flex;
+    flex-direction: row; /* ከግራ ወደ ቀኝ እንዲሆን ያደርጋል */
+    align-items: center; 
+    gap: 8px; /* በጽሁፎች መካከል ትንሽ ክፍተት ይፈጥራል */
+}
+/* ለአዲሱ የመካና መዲና ክፍል */
+.spiritual-promise-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.spiritual-promise-section h2 {
+    color: var(--pink-primary);
+    margin-bottom: 30px;
+}
+/* --- STORY PAGE STYLING --- */
+
+.story-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.story-section .story-intro {
+    font-size: 18px;
+    color: var(--grey-text);
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.story-card {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.story-card .story-image {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 30px;
+}
+
+.story-card .story-text {
+    width: 60%;
+    padding-right: 20px;
+}
+
+.story-card h3 {
+    color: var(--pink-primary);
+    margin-top: 0;
+    border-bottom: 2px solid var(--pink-primary);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.story-card .date-tag {
+    font-weight: 600;
+    color: var(--grey-text);
+    margin-bottom: 15px;
+}
+
+/* ለተለዋጭ አቀማመጥ (Text on the left) */
+.story-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.story-card.reverse .story-image {
+    margin-left: 30px;
+    margin-right: 0;
+}
+
+/* ለአሁን ያለንበት ሁኔታ */
+.story-card.present-status {
+    background-color: var(--light-pink);
+    color: #444;
+    text-align: center;
+    display: block;
+}
+
+.story-card.present-status .story-text {
+    width: 100%;
+}
+
+/* ለሞባይል እይታ (Mobile View) */
+@media (max-width: 768px) {
+    .story-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .story-card .story-image,
+    .story-card .story-text {
+        width: 100%;
+        margin: 10px 0;
+        padding: 0;
+    }
+    
+    .story-card.reverse .story-image {
+        margin-left: 0;
+    }
+}
+/* ==================================== */
+/* MODERN MESSAGE PAGE (CONTACT.HTML) STYLES */
+/* ==================================== */
+
+.message-section {
+    padding: 80px 0;
+    text-align: center;
+    /* ቀላል gradient background (pink – purple) */
+    background: linear-gradient(145deg, #f5d0e3 0%, #e0cffc 100%);
+}
+
+.message-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Foil Text Effect */
+.foil-text {
+    /* የ foil effect ከሌለ እንዲሰራ የሚረዳ */
+    color: #d81b60; 
+    /* Gradient for foil look */
+    background: linear-gradient(120deg, #ffc0cb, #e91e63, #ffc0cb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* Soft white shine */
+}
+
+.intro-text {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.1em;
+    color: #4a4a4a;
+}
+
+/* Card Style for Form */
+.message-card {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 20px; /* Rounded Edges */
+    box-shadow: 0 10px 40px rgba(180, 100, 160, 0.25); /* Soft Shadow */
+    text-align: left;
+    border: 1px solid #ffeffa;
+}
+
+/* Textarea Style */
+.message-card textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e0cffc;
+    border-radius: 12px; /* Rounded Edges */
+    box-sizing: border-box;
+    font-size: 1.1em;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+    min-height: 200px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.message-card textarea:focus {
+    border-color: #d81b60;
+    box-shadow: 0 0 8px rgba(216, 27, 96, 0.3);
+    outline: none;
+}
+
+/* Placeholder Style */
+.message-card textarea::placeholder {
+    color: #999;
+}
+
+/* Emoji Picker */
+.emoji-picker {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.emoji-picker span {
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: 10px;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.emoji-picker span:hover {
+    transform: scale(1.2);
+}
+
+/* Send Button Style (3D soft shadow, animated ripple effect) */
+.send-btn {
+    width: 100%;
+    padding: 18px;
+    background-color: #d81b60; /* Pink base */
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    /* 3D Soft Shadow */
+    box-shadow: 0 8px 15px rgba(216, 27, 96, 0.4), 0 3px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
+}
+
+.send-btn:hover {
+    background-color: #c2185b;
+    box-shadow: 0 5px 10px rgba(216, 27, 96, 0.6), 0 2px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
