@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 መልዕክት - ነቢል & አፊያ</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts2.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ለዚህ ገጽ የሚያስፈልጉ ልዩ CSS ኮዶች (ከታች ደረጃ 3 ላይ ይገባሉ) */
+        /* አሁን ግን ለ Pop-up የሚያስፈልጉት እዚህ ተጨምረዋል */
+        
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #fff7e6, #ffe0e6); /* Light gradient background for modal */
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform 0.3s ease-out;
+        }
+
+        .modal-content.active {
+            transform: scale(1);
+        }
+
+        .modal-content h3 {
+            font-size: 2em;
+            color: #d81b60; /* Pink color for love */
+            margin-bottom: 15px;
+        }
+
+        .modal-content .close-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">💖 ነቢል &amp; አፊያ</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">Story</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html" class="active">Message</a></li>
+        </ul>
+    </nav>
+
+    <section class="message-section" id="message-section">
+        <div class="container">
+            <h2 class="foil-text">✍️ የፍቅር መልዕክት ላክልኝ</h2>
+            <p class="intro-text">
+                ስሜትሽን እና አስተያየትሽን እዚህ በነጻነት ጻፊ። መልዕክትሽ በቀጥታ ወደ ቴሌግራም ይደርሰኛል።
+            </p>
+            
+            <form class="message-card" id="telegram-form">
+                
+                <div class="emoji-picker">
+                    <span onclick="addEmoji('❤️')">❤️</span>
+                    <span onclick="addEmoji('✨')">✨</span>
+                    <span onclick="addEmoji('💐')">💐</span>
+                    <span onclick="addEmoji('🌹')">🌹</span>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message-content" name="message-content" rows="8" placeholder="ለሚወደው ሰው መልዕክት ይጻፉ..." required></textarea>
+                </div>
+                
+                <button type="submit" class="send-btn" id="send-btn">
+                    📨 መልዕክቱን በቴሌግራም ላኪ
+                </button>
+            </form>
+            
+        </div>
+    </section>
+
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>❤️ ፍቅር ተላከ!</h3>
+            <p style="font-size: 1.2em; color: #555;">“Your message has been sent with love ❤️”</p>
+            <button class="close-btn" onclick="closeModal()">እሺ</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ነቢል &amp; አፊያ - በፍቅር የተሰራ.</p>
+    </footer>
+
+    <script>
+        const TELEGRAM_USERNAME = 'nebil_00a'; 
+
+        function addEmoji(emoji) {
+            const textarea = document.getElementById('message-content');
+            textarea.value += emoji;
+            textarea.focus();
+        }
+
+        function openModal() {
+            document.getElementById('success-modal').style.display = 'flex';
+            setTimeout(() => {
+                document.querySelector('.modal-content').classList.add('active');
+            }, 10);
+        }
+
+        function closeModal() {
+            document.querySelector('.modal-content').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('success-modal').style.display = 'none';
+                document.getElementById('message-content').value = ''; // ቅጹን ያጸዳል
+            }, 300);
+        }
+
+        document.getElementById('telegram-form').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const messageContent = document.getElementById('message-content').value;
+            
+            if (!messageContent.trim()) {
+                alert("እባክሽ መልዕክት ሳትጽፊ አትላኪ!");
+                return;
+            }
+
+            const message = `
+💌 አዲስ የፍቅር መልዕክት ደረሰኝ! 💌
+------------------------------
+✍️ መልዕክት:
+${messageContent.trim()}
+------------------------------
+`;
+
+            const encodedMessage = encodeURIComponent(message.trim());
+            
+            const telegramUrl = `https://t.me/${TELEGRAM_USERNAME}?text=${encodedMessage}`;
+
+            // ቴሌግራም እንዲከፈት ማዘዝ
+            window.open(telegramUrl, '_blank');
+            
+            // የ Pop-up መስኮት ማሳየት
+            openModal();
+        });
+    </script>
+    
+</body>
+</html>

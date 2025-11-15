@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ፍቅር - ነቢል & አፊያ</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts2.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">💖 ነቢል &amp; አፊያ</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="story.html">Story</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Message</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section" id="home-section">
+        <div class="hero-content">
+            <h1 class="heading">💖 የፍቅራችን ጅምር</h1>
+            <p class="subtitle">የእኛ ታሪክ የሚጀምረው እዚህ ነው።</p>
+            <div class="date-counter">
+                <p>እስከ ትልቁ ቀን ድረስ የቀሩት</p>
+                <div id="countdown" class="countdown-timer"></div>
+            </div>
+            <a href="#spiritual-promise-section" class="btn primary-btn">የፍቅር ቃል ኪዳን</a>
+        </div>
+    </section>
+
+    <section class="spiritual-promise-section" id="spiritual-promise-section">
+        <div class="container">
+            <h2>💍 የቃል ኪዳን አፍታ</h2>
+            <div class="promise-card card">
+                
+                <p>ውድ ፍቅሬ፣ አብዝቼ እወድሻለሁ። ፈጣሪ የፍቅራችንን ዘመን የተባረከ ያድርገው።</p>
+                <p>የምናደርገውን ሁሉ በፍቅር እንጀምራለን፣ በደስታም እንፈጽማለን። ቃል እገባለሁ!</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="home-video-gallery" id="home-video-gallery">
+        <div class="container">
+            <h2>💖 የተመረጡ አፍታዎች</h2>
+            <p class="gallery-intro">በ Home Page ላይ ብቻ እንዲታዩ የፈለጓቸው ምርጥ ቪዲዮዎች።</p>
+
+            <div class="gallery-grid">
+                
+                <div class="gallery-item full-width-item">
+                    <div class="video-section">
+                        <div class="container">
+                            <h3>🎶 ልዩ የሰርግ ሙዚቃ</h3>
+                            <div class="video-container">
+                                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/ho0WBKPJtfc" title="Amazing Wedding Song" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item full-width-item">
+                    <div class="video-section">
+                        <div class="container">
+                            <h3>🕊️ የሰላም እና የፍቅር መዝሙር</h3>
+                            <div class="video-container">
+                                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/8ELbX5CMomE" title="ነፍስን የሚያረካ ነሺዳ" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item full-width-item">
+                    <div class="video-section">
+                        <div class="container">
+                            <h3>✂️ አስደናቂ የመርፌ ሥራ (Embroidery)</h3>
+                            <div class="video-container">
+                                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/YIxYu2ihU9M" title="Embroidery Art Video" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item full-width-item">
+                    <div class="video-section">
+                        <div class="container">
+                            <h3>🎉 አዲስ አስደሳች የሰርግ ድባብ</h3>
+                            <div class="video-container">
+                                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/a2LC6LambU0" title="Exciting Wedding Video" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="view-all-link">
+                <a href="gallery.html" class="btn primary-btn">ሁሉንም ፎቶዎች ተመልከት ➡️</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ነቢል &amp; አፊያ - በፍቅር የተሰራ.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // የCountdown Timer ኮድ
+        const countdownEl = document.getElementById('countdown');
+        const targetDate = new Date("2025-12-25T00:00:00").getTime(); 
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownEl.innerHTML = `${days}D ${hours}H ${minutes}M ${seconds}S`;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                countdownEl.innerHTML = "ዘላለም በፍቅር!";
+            }
+        }
+
+        updateCountdown();
+        const interval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
